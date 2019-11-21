@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="palabras">
+        <item>Analfabeto</item>
+        <item>Borrico</item>
+        <item>Cazurro</item>
+        <item>Demente</item>
+        <item>Estudioso</item>
+        <item>Facineroso</item>
+    </string-array>
+
+    <string-array name="archivos">
+        <item>cabeza.png</item>
+        <item>brazo.png</item>
+        <item>brazo.png</item>
+        <item>cuerpo.png</item>
+        <item>patita.png</item>
+        <item>patita.png</item>
+    </string-array>
+</resources>
