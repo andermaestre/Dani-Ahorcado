@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIntro=findViewById(R.id.button);
         txtletra=findViewById(R.id.txtLetra);
         btnIntro.setOnClickListener(this);
+
     }
 
     @Override

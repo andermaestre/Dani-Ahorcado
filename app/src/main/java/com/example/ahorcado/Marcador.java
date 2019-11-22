@@ -19,11 +19,13 @@ public class Marcador {
     private ArrayList<Character> letras;
     private int Fallos;
     private String[] archivos;
+    public AssetManager asm;
+
     public String getEstado()
     {
-        return "";//completar
+        return this.Estado;//completar
     }
-    public AssetManager asm;
+
     Marcador(AssetManager asm)
     {
         this.asm=asm;
@@ -36,34 +38,52 @@ public class Marcador {
 
     public void setSolucion(String pal)
     {
-        //Establece la solución
-        //e inicializar el estado.
+        String aux="";
+        this.Solucion=pal;
+        //this.Estado
+        for (int i = 0; i<pal.length()-1;i++){
+            if(i==0||i==pal.length()-1){
+                aux.replace(aux.charAt(i),pal.charAt(i));
+            }else{
+                aux.replace(aux.charAt(i), '-');
+            }
+        }
+        this.Estado=aux;
     }
 
     public String getSolucion()
     {
-        return ""; //completar
+        return this.Solucion;
     }
 
     public boolean comprobar(char c)
     {
-        //Actualiza el estado, buscando las ocurrencias
-        //del caracter c en la solución.
-        //devuelve true o false dependiendo si hemos encontrado
-        //alguna ocurrencia o no
-        return false;//Completar
+        for (int i = 0; i<this.Solucion.length()-1;i++){
+            if(this.Solucion.charAt(i)==c){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void contarFallo()
     {
-        //suma 1 a fallos
 
+        this.Fallos+=1;
     }
 
     public void draw(Canvas canvas)
     {
         //dibujar estado.
+        dibujarEstado(canvas);
         //dibujar marcador.
+        dibuarMarcador(canvas);
+    }
+
+    private void dibujarEstado(Canvas canvas) {
+
+
+
     }
 
     private void dibuarMarcador(Canvas canvas)
@@ -85,12 +105,14 @@ public class Marcador {
     }
 
     private Rect getCoordenadasDestino() {
-        //calcular las coordenadas de origen del Bitmap
+        //calcular las coordenadas de origen del Bitmap con un array en resources
+
         return null;
     }
 
     private Rect getCoordenadasOrigen() {
-        //calcular las coordenadas de destino del bitmap
+        //calcular las coordenadas de destino del bitmap con un array en resources
+
         return null;
     }
 
