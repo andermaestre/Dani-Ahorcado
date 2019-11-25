@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     LinearLayout lv;
     VistaJuego vista;
-    String []palabras;
+    String[] palabras;
     EditText txtletra;
     Button btnIntro;
     @Override
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnIntro=findViewById(R.id.button);
         txtletra=findViewById(R.id.txtLetra);
         btnIntro.setOnClickListener(this);
-
+        vista.nuevaPalabra(palabras);
     }
 
     @Override

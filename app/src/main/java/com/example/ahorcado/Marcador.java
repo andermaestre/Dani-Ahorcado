@@ -5,12 +5,15 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Marcador {
@@ -26,9 +29,11 @@ public class Marcador {
         return this.Estado;//completar
     }
 
-    Marcador(AssetManager asm)
+    public Marcador(AssetManager asm)
     {
         this.asm=asm;
+        this.letras = new ArrayList<>();
+        this.Fallos = 0;
     }
 
     public void startMarcador(AppCompatActivity ca)
@@ -41,11 +46,14 @@ public class Marcador {
         String aux="";
         this.Solucion=pal;
         //this.Estado
+
+        char[] car = aux.toCharArray();
         for (int i = 0; i<pal.length()-1;i++){
             if(i==0||i==pal.length()-1){
-                aux.replace(aux.charAt(i),pal.charAt(i));
+                car[i]=pal.charAt(i);
+
             }else{
-                aux.replace(aux.charAt(i), '-');
+
             }
         }
         this.Estado=aux;
@@ -68,7 +76,6 @@ public class Marcador {
 
     public void contarFallo()
     {
-
         this.Fallos+=1;
     }
 
@@ -81,7 +88,11 @@ public class Marcador {
     }
 
     private void dibujarEstado(Canvas canvas) {
-
+        Paint paint = new Paint();
+        paint.setTypeface(Typeface.DEFAULT);
+        paint.setTextSize(90);
+        String state=this.Estado;
+        canvas.drawText(state.toString(),300,1100,paint);
 
 
     }

@@ -44,7 +44,7 @@ public class VistaJuego extends View {
         m.startMarcador((AppCompatActivity)context);
     }
 
-    public void nuevaPalabra(String []palabras)
+    public void nuevaPalabra(String[] palabras)
     {
         Random r=new Random();
         r.setSeed(System.currentTimeMillis());
@@ -58,7 +58,8 @@ public class VistaJuego extends View {
         if (!m.comprobar(l))
         {
             m.contarFallo();
+            this.invalidate();
         }
-        this.invalidate();
+
     }
 }
